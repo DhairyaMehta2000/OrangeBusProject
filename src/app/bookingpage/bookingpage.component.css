@@ -1,0 +1,14 @@
+.exp{
+    margin-left: 0;
+display: flex;
+justify-content:space-between;
+
+}
+.buttton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-body{
+    margin-left: 0%;
+}

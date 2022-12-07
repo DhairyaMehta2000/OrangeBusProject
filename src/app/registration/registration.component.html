@@ -1,0 +1,87 @@
+<!-- <body>
+  <nav class="navbar navbar-expand-lg bg-warning">
+      <div class="container-fluid">
+          <a class="nav-link" href="Homepage.html"><i class="fa fa-bus" aria-hidden="true"></i></a>
+          <a class="navbar-brand" href="#" style="padding-left: 0.2cm;"> OrangeBus</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+              aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <div class="navbar-nav">
+                <ul>
+                  <li><a class="nav-link active" style="margin-left: 2cm;" aria-current="page" href="Homepage.html">Home</a></li>
+                    <li><a class="nav-link active" style="margin-left: 2cm;" href="#">Track Journey</a></li>
+                      <li><a class="nav-link active" style="margin-left: 2cm;" href="#">Pricing</a></li>
+              
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle active" style="margin-left: 2cm;"href="#" role="button" data-bs-toggle="dropdown"
+                          aria-expanded="false">
+                          Login/Signup
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="login.html">My Profile </a></li>
+                          <li><a class="dropdown-item" href="#">Settings </a></li>
+                          <li><a class="dropdown-item" href="#">FAQ's</a></li>
+                          <li><a class="dropdown-item" href="#">About Us</a></li>
+                      </ul>
+                  </li>
+              </ul>
+              <form class="d-flex p2" style="margin-left: 2cm;" role="search">
+                  <input class="form-control me-2" style="margin-left:1cm" placeholder="Search" aria-label="Search" />
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+          </div>
+      </div>
+  </nav> -->
+
+
+
+<i class="fa fa-envelope" aria-hidden="true"></i>
+<div class="container" style="margin-left: 37%;margin-top:1cm; height: 13cm; background-color:rgba(255, 166, 0, 0.8); width: 9cm;border-radius: 10px;box-shadow: 2px 2px 20px orange;">
+    <form #newForm="ngForm" (ngSubmit)="submit(newForm)" novalidate>
+        <div class="form-group">
+            <label for="validationDefault01" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="validationDefault01" name="validationDefault01" ngModel #validationDefault01="ngModel" required/>
+        </div>
+        <div [hidden]="validationDefault01.valid || validationDefault01.pristine" class="alert alert-danger"> Name is required</div>
+
+        <div class="form-group">
+            <label for="validationDefault02" class="form-label">e-Mail</label>
+            <input type="text" class="form-control" id="validationDefault02" name="validationDefault02" ngModel #validationDefault02="ngModel" required>
+        </div>
+        <div [hidden]="validationDefault02.valid || validationDefault02.pristine" class="alert alert-danger"> Email is required</div>
+
+        <div class='form-group'>
+            <label for="validationDefaultUsername" class="form-label">Username</label>
+            <div class="input-group">
+                <span class="input-group-text" id="inputGroupPrepend2" class="fa fa-envelope-o"></span>
+                <input type="text" class="form-control" id="validationDefaultUsername" ngModel name="validationDefaultUsername" #validationDefaultUsername="ngModel" aria-describedby="inputGroupPrepend2" required>
+            </div>
+        </div>
+        <div [hidden]="validationDefaultUsername.valid || validationDefaultUsername.pristine" class="alert alert-danger"> Username is required</div>
+
+        <div class="form-group">
+            <label for="validationDefault03" class="form-label">Password</label>
+            <input type="password" class="form-control" id="validationDefault03" name="validationDefault03" ngModel #validationDefault03="ngModel" value="">
+        </div>
+        <div [hidden]="validationDefault03.valid || validationDefault03.pristine" class="alert alert-danger"> Password is required</div>
+
+        <div class="form-group">
+            <label for="validationDefault04" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="validationDefault04" name="validationDefault04" ngModel #validationDefault04="ngModel" value="">
+        </div>
+        <div [hidden]="validationDefault04.valid || validationDefault04.pristine" class="alert alert-danger"> Please Re-type your password</div>
+
+        <div class="form-group">
+            <label for="validationDefault05" class="form-label">Contact Number</label>
+            <input type="number" class="form-control" id="validationDefault05" name="validationDefault05" ngModel #validationDefault05="ngModel" required>
+        </div>
+        <br>
+        <div [hidden]="validationDefault05.valid || validationDefault05.pristine" class="alert alert-danger"> Contact Number is required</div>
+
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Register</button>
+        </div>
+    </form>
+</div>

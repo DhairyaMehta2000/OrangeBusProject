@@ -1,0 +1,91 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.card {
+    border: none;
+    max-width: 450px;
+    border-radius: 15px;
+    margin: 150px 0 150px;
+    padding: 35px;
+    padding-bottom: 20px!important;
+    background: linear-gradient(to right, rgba(235, 224, 232, 1) 52%, rgb(119, 103, 54) 53%, rgba(254, 191, 1, 1) 100%);
+}
+
+.heading {
+    color: black;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+img {
+    transform: translate(160px, -10px);
+}
+
+img:hover {
+    cursor: pointer;
+}
+
+.text-warning {
+    font-size: 15px;
+    font-weight: 500;
+    color: darkorange!important;
+}
+
+#cno {
+    transform: translateY(-10px);
+}
+
+input {
+    border-bottom: 1.5px solid #E8E5D2!important;
+    font-weight: bold;
+    border-radius: 0;
+    border: 0;
+}
+
+input:empty {
+    font-size: 0.9em;
+}
+
+.form-group input:focus {
+    border: 0;
+    outline: 0;
+}
+
+.col-sm-5 {
+    padding-left: 90px;
+}
+
+.btn {
+    background: orchid!important;
+    border: none;
+    border-radius: 30px;
+    color: black;
+}
+
+.btn:focus {
+    box-shadow: none;
+} */
+
+.padding {
+    padding: 5rem !important;
+}
+
+.form-control {
+    margin-top: 3%;
+}
+
+.form-control:focus {
+    box-shadow: 10px 0px 0px 0px #ffffff !important;
+    border-color: #4ca746;
+    /* border-color: goldenrod; */
+}
+
+.card-header {
+    background-color: orange;
+}
+
+.card-body {
+    background-color: peachpuff;
+}

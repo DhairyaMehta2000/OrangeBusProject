@@ -1,0 +1,15 @@
+<div class="container">
+    <div>
+        Choose any of the following availabe seats : {{noOfAvailableSeats}}
+    </div>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        Enter number of seats you want to book:
+        <input type="number" name="seatNo" ngModel #seatNo="ngModel" />
+        <button>check</button>
+    </form>
+    <p>The number of available seats are : {{noOfAvailableSeats}}</p>
+    <p>The number of booked seats are : {{noOfbookedSeats}}</p>
+
+    <a> <input class="btn btn-warning " routerLink="/payment" routerLinkActive='activebutton' type="submit"
+        value="Proceed to Pay"></a>
+</div>

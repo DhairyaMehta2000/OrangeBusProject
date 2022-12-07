@@ -1,0 +1,69 @@
+
+  <!-- <nav class="navbar navbar-expand-lg bg-warning">
+    <div class="container-fluid">
+      <a class="nav-link" href="Homepage.html"><i class="fa fa-bus" aria-hidden="true"></i></a>
+      <a class="navbar-brand" href="#" style="padding-left: 0.2cm;"> OrangeBus</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div class="navbar-nav">
+          <a class="nav-link active" style="margin-left: 2cm;" aria-current="page" href="Homepage.html">Home</a>
+          <a class="nav-link active" style="margin-left: 2cm;" href="#">Track Journey</a>
+          <a class="nav-link active" style="margin-left: 2cm;" href="#">Pricing</a>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" style="margin-left: 2cm;" href="#" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Login/Signup
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="login.html">My Profile </a></li>
+              <li><a class="dropdown-item" href="#">Settings </a></li>
+              <li><a class="dropdown-item" href="#">FAQ's</a></li>
+              <li><a class="dropdown-item" href="#">About Us</a></li>
+            </ul>
+          </li>
+          </ul>
+          <form class="d-flex p2" style="margin-left: 2cm;" role="search">
+            <input class="form-control me-2" style="margin-left:1cm" search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+  </nav>> -->
+  <div class="container"
+    style="margin-left: 37%;background-color: cornsilk; width: 340px; height: 7.5cm; border-radius: 15px;" >
+    <form class="form-horizontal" style="width: 350px;" #item2="ngForm" (ngSubmit)="submit(item2)" novalidate>
+      <div class="form-group">
+        <br><i class="fa fa-user" aria-hidden="true"></i>
+        <label class="control-label col-sm-2" for="username">UserName:</label>
+        <div class="col-sm-10">
+          <input type="email" class="form-control" id="username" placeholder="Enter username" ngModel name="username" #username="ngModel">
+        </div>
+      </div>
+      <div class="form-group">
+        <i class="fa fa-lock" aria-hidden="true"></i>
+        <label class="control-label col-sm-2" for="password">Password:</label>
+        <div class="col-sm-10">
+          <input type="password" class="form-control" id="password" placeholder="Enter password" ngModel name="password" #password="ngModel">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+            <label><input type="checkbox" name="remember"> Remember me</label>
+          </div>
+        </div>
+      </div>
+      <a href="#" style="margin-left: 2.7cm;"> Register Here</a>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <input type="submit" class="btn btn-outline-warning"
+            style="margin-left: 3.1cm; margin-top: 0.7cm;" >
+        </div>
+      </div>
+    </form>
+  </div>
+ 
