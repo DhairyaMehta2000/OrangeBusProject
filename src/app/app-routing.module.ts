@@ -7,7 +7,7 @@ import { CardComponent } from './card/card.component';
 import { HomeComponent } from './home/home.component';
 import { OffersComponent } from './offers/offers.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { PaymentpageComponent } from './bookingpage/paymentpage/paymentpage.component';
+import { PaymentpageComponent } from './paymentpage/paymentpage.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { FaqComponent } from './faq/faq.component';
 import { SignupComponent } from './signup/signup.component';

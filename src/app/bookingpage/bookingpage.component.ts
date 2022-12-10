@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router'
+import { BusesService } from '../buses.service';
+import { Buses } from '../home/buses';
 @Component({
   selector: 'app-bookingpage',
   templateUrl: './bookingpage.component.html',
@@ -12,12 +14,14 @@ export class BookingpageComponent implements OnInit {
   noOfbookedSeats: number = 0;
   seatNo = 0;
   currentBookedSeats = 0;
+  buses: Buses[] = [];
 
-  constructor(private _router: Router) { }
+  constructor(private _router: Router, private busesService: BusesService) { }
+
   toggleOn: any;
   onSubmit(f: NgForm) {
     this.currentBookedSeats = f.value.seatNo;
-    this.seatNo = f.value.seatNo;
+    this.seatNo = f.value.seatNo
 
     if (this.noOfAvailableSeats < 10 && this.noOfAvailableSeats >= 0 && this.noOfbookedSeats > 0 && (this.noOfbookedSeats < 10 || this.noOfbookedSeats == 10)) {
       this.toggleOn = true;
@@ -41,10 +45,23 @@ export class BookingpageComponent implements OnInit {
     }
 
   }
-
+  private getBuses() {
+    this.busesService.getBusesList().subscribe(data => {
+      this.buses = data;
+      console.log("buses = ", this.buses);
+    });
+  }
+  private getBusesById(bus:Buses){
+    this.busesService.getBusesByIdList(bus.busId).subscribe(data => {
+      this.buses = data;
+      console.log("buses = ", this.buses);
+    });
+  }
 
 
   ngOnInit(): void {
+    this.getBuses();
+    // this.getBusesById();
   }
 
 }

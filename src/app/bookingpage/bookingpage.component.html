@@ -1,11 +1,10 @@
 <div class="container">
     <div class="row container1">
         <div class="col-md-12 col-lg-12 col-sm-12">
-
+            
             <div class="card">
-                <div class="card-body ">
-                    <h5 class="card-title exp">OrangeBus <b>08:00</b><b>10h
-                            00m</b><b>18:00</b><b>INR2000</b></h5>
+                <div class="card-body " *ngFor = "let bus of buses">
+                    <h5 class="card-title exp">{{bus.busName}} <b>{{bus.busStartTime}}</b><b>{{bus.busEndTime}}</b><b>{{bus.travelTime}}</b><b>{{bus.busFair}}</b></h5>
                     <h6 class="card-subtitle mb-2 text-muted exp"></h6>
                     <p class="card-text exp">Some quick example text to build on the card title and make up the bulk of
                         the

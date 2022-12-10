@@ -8,20 +8,21 @@
     <a> <input class="btn btn-warning " routerLink="/booking" routerLinkActive='activebutton' type="submit"
             value="Check"></a>
 </div>
-<div class="container mt-4 px-4 mid">
+<div class="container mt-4 px-4 mid" *ngFor = "let bus of buses">
     <!-- search ends  -->
     <!-- top routes html -->
     <div class="row">
         <h2 class="mb-4 mid">Top Routes</h2>
         <div class="col-md-3 p">
-            Bangalore to Mumbai
+            {{bus.busFrom}} to {{bus.busTo}}
         </div>
         <div class="col-md-3">
             <a> <input class="btn btn-warning " routerLink="/booking" routerLinkActive='activebutton' type="submit"
                     value="Check"></a>
         </div>
         <div class="col-md-3">
-            Ahmedabad to Mumbai
+            {{bus.busFrom}} to {{bus.busTo}} 
+            {{bus}}
         </div>
         <div class="col-md-3">
             <!-- <a class=" button" [routerLink]="['detail']" ariaCurrentActive='page'>REyyy</a> -->
