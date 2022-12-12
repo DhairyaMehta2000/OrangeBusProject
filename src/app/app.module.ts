@@ -16,8 +16,11 @@ import { CardComponent } from './card/card.component';
 import { CancelticketComponent } from './cancelticket/cancelticket.component';
 import { BookingpageComponent } from './bookingpage/bookingpage.component';
 import { SignupComponent } from './signup/signup.component';
-import { RegistrationComponent } from './registration/registration.component';
+// import { RegisterationComponent } from './registration/patient-register.component'
 import {HttpClientModule} from '@angular/common/http'
+import { PatientRegisterComponent } from './registration/patient-register.component';
+import { BookingsummaryComponent } from './bookingsummary/bookingsummary.component';
+// import { CookieService } from 'ngx-cookie-service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,8 +34,9 @@ import {HttpClientModule} from '@angular/common/http'
     CancelticketComponent,
     BookingpageComponent,
     SignupComponent,
-    RegistrationComponent,
-    BookingsComponent
+    PatientRegisterComponent,
+    BookingsComponent,
+    BookingsummaryComponent
   ],
   imports: [
     FormsModule,
@@ -40,7 +44,8 @@ import {HttpClientModule} from '@angular/common/http'
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule ,
+    // CookieService
     // RouterModule.forRoot(routes)
   ],
   providers: [],

@@ -1,37 +1,70 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
 
 <!-- search bar -->
-<div class="container text-center input-group mb-3 mt-3">
+<!-- <h1>Welcome, {{firstname}}</h1> -->
+
+<!-- <div class="container text-center input-group mb-3 mt-3" *ngFor="let bus of buses"> -->
     <!-- search for routes html -->
-    <input type="text" class="form-control" placeholder="Leaving From..." aria-label="Username">
-    <input type="text" class="form-control" placeholder="Going To..." aria-label="Server">
-    <a> <input class="btn btn-warning " routerLink="/booking" routerLinkActive='activebutton' type="submit"
-            value="Check"></a>
-</div>
-<div class="container mt-4 px-4 mid" *ngFor = "let bus of buses">
+    <h1>Welcome {{testService.fname}}</h1>
+    <div class="input-label">From</div>
+    <select [(ngModel)]="busesService.busFrom" class="form-select" aria-label="Default select example">
+      <option value="" disabled selected></option>
+      <option value="{{ station.stationName }}" *ngFor="let station of stations">
+        {{ station.stationName }}
+      </option>
+    </select>
+    <div class="input-label">To</div>
+    <select [(ngModel)]="busesService.busTo" class="form-select" aria-label="Default select example">
+      <option value="" disabled selected></option>
+      <option value="{{ station.stationName }}" *ngFor="let station of stations">
+        {{ station.stationName }}
+      </option>
+    </select>
+    <button (click)="onClick()" class="btn btn-warning">Book</button>
+    <!-- <a> <input class="btn btn-warning " routerLink="/booking" routerLinkActive='activebutton' type="submit"
+            value="Check"></a> -->
+<!-- </div> -->
+<h2 class="mb-4 mid">Top Routes</h2>
+<div class="container mt-4 px-4 mid" >
     <!-- search ends  -->
     <!-- top routes html -->
-    <div class="row">
-        <h2 class="mb-4 mid">Top Routes</h2>
-        <div class="col-md-3 p">
+    <!-- <div class="input-label">From</div>
+    <select [(ngModel)]="bus.busFrom" class="form-select" aria-label="Default select example">
+      <option value="" disabled selected></option>
+      <option value="{{ station.stationId }}" *ngFor="let station of stations">
+        {{ station.stationName }}
+      </option>
+    </select>
+    <div class="input-label">To</div>
+    <select [(ngModel)]="bus.busTo" class="form-select" aria-label="Default select example">
+      <option value="" disabled selected></option>
+      <option value="{{ station.stationId }}" *ngFor="let station of stations">
+        {{ station.stationName }}
+      </option>
+    </select> -->
+    <!-- <div class="row">
+        
+        <div class="col-md-3 col-lg-6 ">
+            [(bus.busFrom)] to [(bus.busTo)]
+        </div>
+        <div class="col-md-3 ">
+            <form #f="ngForm" (ngSubmit)="onClick(f) ">
+
+                <button class="btn btn-warning">Book</button>
+            </form>
+        </div> -->
+        <!-- <div class="col-md-3">
             {{bus.busFrom}} to {{bus.busTo}}
+
         </div>
         <div class="col-md-3">
+           
             <a> <input class="btn btn-warning " routerLink="/booking" routerLinkActive='activebutton' type="submit"
                     value="Check"></a>
-        </div>
-        <div class="col-md-3">
-            {{bus.busFrom}} to {{bus.busTo}} 
-            {{bus}}
-        </div>
-        <div class="col-md-3">
-            <!-- <a class=" button" [routerLink]="['detail']" ariaCurrentActive='page'>REyyy</a> -->
-            <a> <input class="btn btn-warning " routerLink="/booking" routerLinkActive='activebutton' type="submit"
-                    value="Check"></a>
-        </div>
-    </div>
+        </div> -->
+    <!-- </div> -->
     <hr>
-    <div class="row">
+    <!-- <div class="row">
 
         <div class="col-md-3">
             Pune to Ahmedabad
@@ -101,10 +134,11 @@
             <a> <input class="btn btn-warning " routerLink="/booking" routerLinkActive='activebutton' type="submit"
                     value="Check"></a>
         </div>
-    </div>
+    </div> -->
     <hr>
     <!-- top routes ending -->
     <!-- offers start -->
+</div>
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-12 col-sm-12 " style="height: 100%;
@@ -167,7 +201,7 @@
             </div>
         </div>
     </div>
-</div>
+
 
 
 <ng-template #content let-modal>
@@ -283,7 +317,6 @@
 <!-- offers end -->
 
 <!-- testtimonials start -->
-
 
 
 

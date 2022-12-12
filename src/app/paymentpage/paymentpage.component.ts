@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { BusesService } from '../buses.service';
+import { TestServiceService } from '../test-service.service';
 
 @Component({
   selector: 'app-paymentpage',
@@ -10,11 +13,15 @@ export class PaymentpageComponent implements OnInit {
    counter(item: number) {
     return new Array(item);
 }
-  constructor() { }
+  constructor(public testService:TestServiceService,private router:Router,private busesService: BusesService) { }
 
   ngOnInit(): void {
   }
-// @Input() item=0;
+payment(){
+this.router.navigate(['/bookingsummary'])
+  console.log(this.testService.fname)
+}
+
 
 
 }

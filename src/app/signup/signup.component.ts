@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { TestServiceService } from '../test-service.service';
+import { User } from '../user';
+import { UserService } from '../user.service';
+// import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-signup',
@@ -7,46 +12,55 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-
-  log=['Paavan','Chandana','Dhairya','Pavitra']
-  auth: { [key: string]: string } = {
-
-    "Paavan" : "paavan123",
-
-    "Chandana" : "Chandana123",
-
-    "Dhairya" : "Dhairya",
-
-    "Pavitra" : "Pavitra"
-
-  }
-  
+  a: number = 6
+  b: String = ''
+  minNumberofChars: number = 6;
+  maxNumberofChars: number = 16;
+  // regularExpression = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/
+  users: User[] = []
+  len: number = this.users.length;
+  counter: number = 0;
+  firstname:String='';
 
   // onSubmit(){ this.submitted = true;}
-  constructor() { }
+  constructor(public router: Router, public userService: UserService, public testService:TestServiceService) { }
 
   ngOnInit(): void {
+    this.getUsers();
   }
-  submit(form: NgForm){
+  private getUsers() {
+    this.userService.getUsersList().subscribe(data => { this.users = data; console.log("users = ", this.users) });
+  }
+  login(form: NgForm) {
+    if (!(form.value.pass || form.value.user)) {
+      alert('please provide valid username or password')
+    }
+    if ((form.value.pass.length < this.minNumberofChars || form.value.pass.length > this.maxNumberofChars) && (form.value.pass || form.value.user)) {
+      // this.b = 'password length must be between 6-16 characters'
+      alert('incorrect cred')
+    }
 
+    if (form.value.pass.length > this.minNumberofChars && form.value.pass.length < this.maxNumberofChars ) {
 
+      for (var i of this.users) {
 
-    let u = form.value.username;
-
-    // const d = this.auth["Srinath"];
-
-    if(this.log.includes(u)){
-
-      if(form.value.password==this.auth[u]){
-
-        alert("Login Succesful!!");
-      }    
-      else{
-        alert("Password Doesn't match")
+        if (i.firstName == form.value.user && i.password == form.value.pass) {
+          this.testService.fname=i.firstName;
+          this.testService.lname=i.lastName;
+          console.log("data to send to other components ",i)
+          alert("Logged in succesfully");
+          this.router.navigate(['/home-page'])
+          this.counter = 1
+          break
+        }
+        if (this.users.indexOf(i) == this.users.length - 1) {
+          alert("username or pass check karo")
+        }
       }
-    }
-    else{
-      alert("Username Does not Exits")
+
     }
   }
+
 }
+
+
