@@ -11,14 +11,21 @@ import { TestServiceService } from '../test-service.service';
   styleUrls: ['./bookingsummary.component.css']
 })
 export class BookingsummaryComponent implements OnInit {
+  filteredBookings: Booking[] = [];
   buses!: Buses[]
-  bookings!:Booking[]
-  constructor(public bookingService: BookingService, public testService: TestServiceService, public busesService: BusesService) { }
+  bookings: Booking[] = [];
+  toToggle:Boolean=false
 
+  constructor(public bookingService: BookingService, public testService: TestServiceService, public busesService: BusesService) { }
+  a = this.testService.aadhar
   ngOnInit(): void {
     this.getBusDetails();
-    this.getBookings();
-    // console.log(this.testService.fname)
+    // this.getBookings();
+    this.getBookingByUid(this.a);
+    // console.log(this.testService.aadhar)
+  }
+  btn(){
+    this.toToggle=true;
   }
   private getBusDetails() {
     this.busesService.getBusesRouteList(this.busesService.busFrom, this.busesService.busTo).subscribe(data => {
@@ -27,12 +34,17 @@ export class BookingsummaryComponent implements OnInit {
     });
   }
   private getBookings() {
-    this.bookingService.getBookingsByList().subscribe(data=>{
-      this.bookings=data;
+    this.bookingService.getBookingsByList().subscribe(data => {
+      this.bookings = data;
       console.log("bookings = ", this.bookings);
 
     })
-    
   }
-
+  private getBookingByUid(a: number) {
+    this.btn()
+    this.bookingService.getbookingById(a).subscribe(data => {
+      this.filteredBookings = data;
+      console.log(this.filteredBookings);
+    })
+  }
 }

@@ -11,21 +11,27 @@ import { Router } from '@angular/router';
   styleUrls: ['./patient-register.component.css']
 })
 export class PatientRegisterComponent implements OnInit {
-  users : User = new User(10,"Dhairya","mehta","Male","123456",7972528199,10,22);
+  // users : User = new User(10,"Dhairya","mehta","Male","123456",7972528199,10,22);
+  users:User=new User();
+  // users:User[]=[]
   
   constructor(private router: Router, private userService: UserService) { }
-
   ngOnInit(): void {
     this.createuser();
-    console.log(this.users);
   }
+  
     createuser():void{
+      if(String(this.users.uid).length>12){
+        alert("Enter a valid aadhar number")
+      }
+      else{
       this.userService.createAUser(this.users).subscribe(data=>{
         alert('user created');
         console.log(data);
-        this.router.navigate(['/home-page']);
+        // this.router.navigate(['/home-page']);
       })
     }
   }
 
 
+}

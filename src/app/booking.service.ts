@@ -6,10 +6,18 @@ import { Booking } from './booking';
   providedIn: 'root'
 })
 export class BookingService {
+  // uid!: number;
 
-  constructor(private httpClient:HttpClient) { }
 
-  getBookingsByList(){
+  constructor(private httpClient: HttpClient) { }
+  getbookingById(uid:number) {
+    return this.httpClient.get<Booking[]>(`http://localhost:1228/booking/get/${uid}`)
+  }
+  getBookingsByList() {
     return this.httpClient.get<Booking[]>("http://localhost:1228/booking/get");
   }
+  public createBookings(booking: Booking) {
+    return this.httpClient.post<Booking>("http://localhost:1228/booking/createbooking", booking);
+  }
+
 }

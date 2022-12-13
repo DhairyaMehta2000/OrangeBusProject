@@ -1,3 +1,4 @@
+import { Time } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -7,22 +8,26 @@ import { Buses } from './buses';
   providedIn: 'root'
 })
 export class BusesService {
+  busId!:number;
+  busName!:String;
+  busNumber!:String;
+  busStartTime!:Time;
+  busEndTime!:Time;
+  busFair!:String;
   busFrom!:String;
   busTo!:String;
-  // id!:number
-baseURL="http://localhost:1228/buses"
-  constructor(private httpClient:HttpClient) { }
+  travelTime!: Time;
+  busData!:Buses;
+  baseURL = "http://localhost:1228/buses"
+  constructor(private httpClient: HttpClient) { }
   getBusesList(): Observable<Buses[]> {
     return this.httpClient.get<Buses[]>(`${this.baseURL}/get`);
-    
   }
   getBusesByIdList(busId: any): Observable<Buses[]> {
     return this.httpClient.get<Buses[]>(`${this.baseURL}/${busId}`);
-    
   }
-  getBusesRouteList(busFrom:String,busTo:String){
-    console.log("busfrom = " ,busFrom,"busTo = ",busTo)
+  getBusesRouteList(busFrom: String, busTo: String) {
+    console.log("busfrom = ", busFrom, "busTo = ", busTo)
     return this.httpClient.get<Buses[]>(`${this.baseURL}/getbus/${busFrom}/${busTo}`);
   }
-  // `${this.baseURL}/getbus/${busFrom}/${busTo}`
 }

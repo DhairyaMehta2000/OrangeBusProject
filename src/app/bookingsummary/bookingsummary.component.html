@@ -1,18 +1,57 @@
 <div class="container">
-    <div class="card">
-        <div class="card-body " *ngFor="let bus of buses">
-            <h5 class="card-title exp">
-                <b>{{testService.fname}}</b>
-                <b>{{bus.busFrom}}</b>
-                <b>{{bus.busTo}}</b>
-                <b>{{bus.busFair}}</b>
-                <b>{{bus.busNumber}}</b>
-            </h5>
-            <h6 class="card-subtitle mb-2 text-muted exp"></h6>
-            <p class="card-text exp">Some quick example text to build on the card title and make up the bulk of
-                the
-                card's
-                content.</p>
+    <h1>Enter Uid number to check bookings</h1>
+    <br>
+    Enter Uid : <input type="number">
+    <br>
+    <button (click)="btn()">Check bookings</button>
+    <div *ngIf="toToggle; else elseBlock" class="card">
+        <div class="card-body exp">
+            <b>Customer Name</b>
+            <b>Customer Gender</b>
+            <b>Customer Age</b>
+            <b>Seat Number</b>
+            <b>Booked From</b>
+            <b>Booked To</b>
+            <b>Paid Fare</b>
+            <b>Bus Number</b>
+            
         </div>
     </div>
+    <div class="card">
+        <div class="card-body " *ngFor="let booking of filteredBookings">
+            <!-- {{booking.aadhar}} -->
+            <h5 class="card-title exp">
+                <b>{{booking.customerName}}</b>
+                <b>
+                    {{booking.customerGender}}
+                </b>
+                <b>
+                    {{booking.customerAge}}
+                </b>
+                <b>
+                    {{booking.seatNumber}}
+                </b>
+                <b>
+                    {{booking.bookedFrom}}
+                </b>
+
+                <b> 
+                    {{booking.bookedTo}}
+                </b>
+
+                <b>
+                    {{booking.paidFair}}
+                </b>
+
+                <b>
+                    {{booking.busNumber}}
+                </b>
+
+
+            </h5>
+            
+            
+        </div>
+    </div>
+    <ng-template #elseBlock></ng-template>
 </div>

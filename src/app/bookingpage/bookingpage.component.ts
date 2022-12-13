@@ -4,6 +4,7 @@ import { Router } from '@angular/router'
 import { BusesService } from '../buses.service';
 import { Buses } from '../buses';
 import { TestServiceService } from '../test-service.service';
+import { BookingService } from '../booking.service';
 @Component({
   selector: 'app-bookingpage',
   templateUrl: './bookingpage.component.html',
@@ -17,10 +18,11 @@ export class BookingpageComponent implements OnInit {
   currentBookedSeats = 0;
   buses: Buses[] = [];
 
-  constructor(private testService:TestServiceService,private _router: Router, private busesService: BusesService) { }
+  constructor(private testService:TestServiceService,private _router: Router, private busesService: BusesService,private bookingService:BookingService) { }
 
   toggleOn: any;
-  onSubmit(f: NgForm) {
+  onSubmit(f: NgForm,bus:Buses) {
+    this.busesService.busData=bus
     this.currentBookedSeats = f.value.seatNo;
     this.seatNo = f.value.seatNo
 
