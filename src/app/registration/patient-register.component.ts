@@ -11,9 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./patient-register.component.css']
 })
 export class PatientRegisterComponent implements OnInit {
-  // users : User = new User(10,"Dhairya","mehta","Male","123456",7972528199,10,22);
   users:User=new User();
-  // users:User[]=[]
   
   constructor(private router: Router, private userService: UserService) { }
   ngOnInit(): void {
@@ -28,7 +26,7 @@ export class PatientRegisterComponent implements OnInit {
       this.userService.createAUser(this.users).subscribe(data=>{
         alert('user created');
         console.log(data);
-        // this.router.navigate(['/home-page']);
+        this.router.navigate(['/signup']);
       })
     }
   }

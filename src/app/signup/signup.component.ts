@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { TestServiceService } from '../test-service.service';
 import { User } from '../user';
 import { UserService } from '../user.service';
-// import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-signup',
@@ -16,13 +15,11 @@ export class SignupComponent implements OnInit {
   b: String = ''
   minNumberofChars: number = 6;
   maxNumberofChars: number = 16;
-  // regularExpression = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/
   users: User[] = []
   len: number = this.users.length;
   counter: number = 0;
   firstname:String='';
 
-  // onSubmit(){ this.submitted = true;}
   constructor(public router: Router, public userService: UserService, public testService:TestServiceService) { }
 
   ngOnInit(): void {
@@ -36,7 +33,6 @@ export class SignupComponent implements OnInit {
       alert('please provide valid username or password')
     }
     if ((form.value.pass.length < this.minNumberofChars || form.value.pass.length > this.maxNumberofChars) && (form.value.pass || form.value.user)) {
-      // this.b = 'password length must be between 6-16 characters'
       alert('incorrect cred')
     }
 
@@ -54,7 +50,7 @@ export class SignupComponent implements OnInit {
           break
         }
         if (this.users.indexOf(i) == this.users.length - 1) {
-          alert("username or pass check karo")
+          alert("User does not exist")
         }
       }
 

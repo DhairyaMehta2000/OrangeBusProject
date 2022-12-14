@@ -31,7 +31,6 @@ export class PaymentpageComponent implements OnInit {
     this.getBusesByRoute();
   }
   payment(form: NgForm) {
-    // console.log("aadhar = ", form.value.aadhar);
     this.aadhar = form.value.aadhar;
     this.testService.aadhar=this.aadhar = form.value.aadhar;
     var toBook = form.value.names.split(',');
@@ -64,6 +63,7 @@ export class PaymentpageComponent implements OnInit {
       this.bookingService.createBookings(m).subscribe(data => {
       })
     }
+    alert("booking done")
     this.router.navigate(['/bookingsummary'])
   }
 
@@ -73,6 +73,4 @@ export class PaymentpageComponent implements OnInit {
       console.log("stations = ", this.buses);
     });
   }
-
-
 }

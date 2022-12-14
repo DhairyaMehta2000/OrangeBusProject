@@ -1,7 +1,7 @@
 <div class="container">
     <h1>Enter Uid number to check bookings</h1>
     <br>
-    Enter Uid : <input type="number">
+    Enter Uid : <input type="number" [(ngModel)]="aadh">
     <br>
     <button (click)="btn()">Check bookings</button>
     <div *ngIf="toToggle; else elseBlock" class="card">
@@ -19,7 +19,6 @@
     </div>
     <div class="card">
         <div class="card-body " *ngFor="let booking of filteredBookings">
-            <!-- {{booking.aadhar}} -->
             <h5 class="card-title exp">
                 <b>{{booking.customerName}}</b>
                 <b>

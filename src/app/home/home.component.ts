@@ -63,7 +63,7 @@ onClick(){
   private getBusesByRoute() {
     console.log("busfrom = " ,this.busesService.busFrom,"busTo = ",this.busesService.busTo)
     this.busesService.getBusesRouteList(this.busesService.busFrom,this.busesService.busTo).subscribe(data => {this.buses=data;
-      console.log("stations = ",this.buses);});
+      console.log("buses = ",this.buses);});
   }
 }
 

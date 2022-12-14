@@ -15,17 +15,17 @@ export class BookingsummaryComponent implements OnInit {
   buses!: Buses[]
   bookings: Booking[] = [];
   toToggle:Boolean=false
-
+  aadh!:number;
   constructor(public bookingService: BookingService, public testService: TestServiceService, public busesService: BusesService) { }
   a = this.testService.aadhar
   ngOnInit(): void {
     this.getBusDetails();
-    // this.getBookings();
-    this.getBookingByUid(this.a);
-    // console.log(this.testService.aadhar)
+    this.getBookings();
   }
   btn(){
+    console.log(this.aadh)
     this.toToggle=true;
+    this.getBookingByUid(this.aadh);
   }
   private getBusDetails() {
     this.busesService.getBusesRouteList(this.busesService.busFrom, this.busesService.busTo).subscribe(data => {
@@ -41,7 +41,7 @@ export class BookingsummaryComponent implements OnInit {
     })
   }
   private getBookingByUid(a: number) {
-    this.btn()
+    // this.btn()
     this.bookingService.getbookingById(a).subscribe(data => {
       this.filteredBookings = data;
       console.log(this.filteredBookings);
