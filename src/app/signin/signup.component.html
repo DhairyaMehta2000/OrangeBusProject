@@ -43,14 +43,12 @@
         <div data-validate="Password is required">
           <!-- <input type="password"  id="password" placeholder="Enter password"name="pass" ngModel required
          #pass="ngModel" > -->
-          <input type="password" name="pass" id="password" ngModel required #pass="ngModel"> <span></span> <span
-            class="symbol-input100"> <span></span> </span>
+         <label class="control-label col-sm-2" for="username">Password:</label>
+          <input type="password" name="pass" id="password" class="pw" ngModel required #pass="ngModel" placeholder="Enter password"> 
         </div>
         <br>
-        <a href="#" routerLink="/patient-register" class="txt1">
-          new patient registration
-        </a>
-        <div> <button class=> Login
+        <br>
+        <div> <button class="txt1"> Login
           </button> </div>
       </form>
     </div>

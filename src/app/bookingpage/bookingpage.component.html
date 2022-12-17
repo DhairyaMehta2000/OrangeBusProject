@@ -21,14 +21,14 @@
                     <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
                         <div class="container">
 
-                            <form #f="ngForm" (ngSubmit)="onSubmit(f,bus)">
+                            <form #f="ngForm" (ngSubmit)="onSubmit(f)">
                                 Enter number of seats you want to book:
                                 <input type="number" name="seatNo" ngModel #seatNo="ngModel" />
                                 <button class="btn btn-warning">Check</button>
                             </form>
                             
                             <p>The number of selected seats are : {{noOfselectedSeats}}</p>
-                            <form #f="ngForm" (ngSubmit)="onSubmit(f,bus) ">
+                            <form #f="ngForm" (ngSubmit)="onSubmit(f) ">
 
                                 <button class="btn btn-warning">Proceed to Pay</button>
                                 <br>

@@ -23,17 +23,17 @@ import { TestServiceService } from '../test-service.service';
 export class HomeComponent implements OnInit {
   // busFrom!:String;
   // busTo!:String;
-  closeResult: string | undefined
+  // closeResult: string | undefined
   users!: User[];
   stations: Station[] = [] ;
   user:User[]=[];
   buses: Buses[] = [];
-  currentRouter:String=''
+  // currentRouter:String=''
 
 onClick(){
   console.log(this.busesService.busFrom,this.busesService.busTo);
   this.router.navigate(['/booking']);
-  this.getBusesByRoute();
+  // this.getBusesByRoute();
   // console.log(f.value.);
   // this.currentRouter=
 
@@ -48,23 +48,23 @@ onClick(){
     // this.getBuses();
 
   }
-  private getBuses() {
-    this.busesService.getBusesList().subscribe(data => {
-      this.buses = data;
-      console.log("buses = ", this.buses);
-    });
-  }
+  // private getBuses() {
+  //   this.busesService.getBusesList().subscribe(data => {
+  //     this.buses = data;
+  //     console.log("buses = ", this.buses);
+  //   });
+  // }
   
 
   private getStations() {
     this.stationService.getStationList().subscribe(data => {this.stations=data;
       console.log("stations = ",this.stations);});
   }
-  private getBusesByRoute() {
-    console.log("busfrom = " ,this.busesService.busFrom,"busTo = ",this.busesService.busTo)
-    this.busesService.getBusesRouteList(this.busesService.busFrom,this.busesService.busTo).subscribe(data => {this.buses=data;
-      console.log("buses = ",this.buses);});
-  }
+  // private getBusesByRoute() {
+  //   console.log("busfrom = " ,this.busesService.busFrom,"busTo = ",this.busesService.busTo)
+  //   this.busesService.getBusesRouteList(this.busesService.busFrom,this.busesService.busTo).subscribe(data => {this.buses=data;
+  //     console.log("buses = ",this.buses);});
+  // }
 }
 
 

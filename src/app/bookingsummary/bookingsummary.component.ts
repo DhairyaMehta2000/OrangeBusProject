@@ -19,27 +19,27 @@ export class BookingsummaryComponent implements OnInit {
   constructor(public bookingService: BookingService, public testService: TestServiceService, public busesService: BusesService) { }
   a = this.testService.aadhar
   ngOnInit(): void {
-    this.getBusDetails();
-    this.getBookings();
+    // this.getBusDetails();
+    // this.getBookings();
   }
   btn(){
-    console.log(this.aadh)
+    // console.log(this.aadh)
     this.toToggle=true;
     this.getBookingByUid(this.aadh);
   }
-  private getBusDetails() {
-    this.busesService.getBusesRouteList(this.busesService.busFrom, this.busesService.busTo).subscribe(data => {
-      this.buses = data;
-      console.log("buses = ", this.buses);
-    });
-  }
-  private getBookings() {
-    this.bookingService.getBookingsByList().subscribe(data => {
-      this.bookings = data;
-      console.log("bookings = ", this.bookings);
+  // private getBusDetails() {
+  //   this.busesService.getBusesRouteList(this.busesService.busFrom, this.busesService.busTo).subscribe(data => {
+  //     this.buses = data;
+  //     console.log("buses = ", this.buses);
+  //   });
+  // }
+  // private getBookings() {
+  //   this.bookingService.getBookingsByList().subscribe(data => {
+  //     this.bookings = data;
+  //     console.log("bookings = ", this.bookings);
 
-    })
-  }
+  //   })
+  // }
   private getBookingByUid(a: number) {
     // this.btn()
     this.bookingService.getbookingById(a).subscribe(data => {

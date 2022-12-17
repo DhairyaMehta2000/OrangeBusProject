@@ -7,8 +7,6 @@ import { Booking } from './booking';
 })
 export class BookingService {
   // uid!: number;
-
-
   constructor(private httpClient: HttpClient) { }
   getbookingById(uid:number) {
     return this.httpClient.get<Booking[]>(`http://localhost:1228/booking/get/${uid}`)

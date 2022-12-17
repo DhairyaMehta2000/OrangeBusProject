@@ -6,7 +6,7 @@ import { User } from '../user';
 import { UserService } from '../user.service';
 
 @Component({
-  selector: 'app-signup',
+  selector: 'app-signin',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })

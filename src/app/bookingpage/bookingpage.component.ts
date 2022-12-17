@@ -21,8 +21,8 @@ export class BookingpageComponent implements OnInit {
   constructor(private testService:TestServiceService,private _router: Router, private busesService: BusesService,private bookingService:BookingService) { }
 
   toggleOn: any;
-  onSubmit(f: NgForm,bus:Buses) {
-    this.busesService.busData=bus
+  onSubmit(f: NgForm) {
+    // this.busesService.busData=bus
     this.currentBookedSeats = f.value.seatNo;
     this.seatNo = f.value.seatNo
 
@@ -48,21 +48,21 @@ export class BookingpageComponent implements OnInit {
     }
 
   }
-  private getBuses() {
-    this.busesService.getBusesList().subscribe(data => {
-      this.buses = data;
-      console.log("buses = ", this.buses);
-    });
-  }
-  private getBusesById(bus:Buses){
-    this.busesService.getBusesByIdList(bus.busId).subscribe(data => {
-      this.buses = data;
-      console.log("buses = ", this.buses);
-    });
-  }
+  // private getBuses() {
+  //   this.busesService.getBusesList().subscribe(data => {
+  //     this.buses = data;
+  //     console.log("buses = ", this.buses);
+  //   });
+  // }
+  // private getBusesById(bus:Buses){
+  //   this.busesService.getBusesByIdList(bus.busId).subscribe(data => {
+  //     this.buses = data;
+  //     console.log("buses = ", this.buses);
+  //   });
+  // }
   private getBusesByRoute() {
     this.busesService.getBusesRouteList(this.busesService.busFrom,this.busesService.busTo).subscribe(data => {this.buses=data;
-      console.log("stations = ",this.buses);});
+      console.log("bueses by route = ",this.buses);});
   }
 
   ngOnInit(): void {

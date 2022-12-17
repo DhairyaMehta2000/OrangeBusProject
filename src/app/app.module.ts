@@ -1,32 +1,26 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
-import { OffersComponent } from './offers/offers.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-
 import { BookingsComponent } from './bookings/bookings.component';
-
 import { PaymentpageComponent } from './paymentpage/paymentpage.component';
 import { CardComponent } from './card/card.component';
 import { CancelticketComponent } from './cancelticket/cancelticket.component';
 import { BookingpageComponent } from './bookingpage/bookingpage.component';
-import { SignupComponent } from './signup/signup.component';
-// import { RegisterationComponent } from './registration/patient-register.component'
-import {HttpClientModule} from '@angular/common/http'
-import { PatientRegisterComponent } from './registration/patient-register.component';
+import { SignupComponent } from './signin/signup.component';
+import { HttpClientModule } from '@angular/common/http'
+import { PatientRegisterComponent } from './registration/register.component';
 import { BookingsummaryComponent } from './bookingsummary/bookingsummary.component';
-// import { CookieService } from 'ngx-cookie-service';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavComponent,
-    OffersComponent,
     PageNotFoundComponent,
     BookingsComponent,
     PaymentpageComponent,
@@ -44,9 +38,7 @@ import { BookingsummaryComponent } from './bookingsummary/bookingsummary.compone
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    ReactiveFormsModule ,
-    // CookieService
-    // RouterModule.forRoot(routes)
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

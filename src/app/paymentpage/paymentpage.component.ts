@@ -21,7 +21,6 @@ export class PaymentpageComponent implements OnInit {
     return new Array(item);
   }
   constructor(public testService: TestServiceService, private router: Router, public busesService: BusesService, public bookingService: BookingService) { }
-  test!: Buses;
   booking!: Booking;
   buses!: Buses[]
   bookSer!: BookingService;
@@ -58,7 +57,7 @@ export class PaymentpageComponent implements OnInit {
     }
     
     console.log("aadhar now = ", this.testService.aadhar);
-
+    
     for (let m of this.bookingVar) {
       this.bookingService.createBookings(m).subscribe(data => {
       })
@@ -70,7 +69,7 @@ export class PaymentpageComponent implements OnInit {
   private getBusesByRoute() {
     this.busesService.getBusesRouteList(this.busesService.busFrom, this.busesService.busTo).subscribe(data => {
       this.buses = data
-      console.log("stations = ", this.buses);
+      console.log("buses = ", this.buses);
     });
   }
 }

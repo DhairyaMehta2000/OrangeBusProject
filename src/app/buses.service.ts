@@ -17,8 +17,7 @@ export class BusesService {
   busFrom!:String;
   busTo!:String;
   travelTime!: Time;
-  busData!:Buses;
-  baseURL = "http://localhost:1228/buses"
+    baseURL = "http://localhost:1228/buses"
   constructor(private httpClient: HttpClient) { }
   getBusesList(): Observable<Buses[]> {
     return this.httpClient.get<Buses[]>(`${this.baseURL}/get`);
