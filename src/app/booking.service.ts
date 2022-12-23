@@ -6,6 +6,9 @@ import { Booking } from './booking';
   providedIn: 'root'
 })
 export class BookingService {
+  deleteBookingById(id: number) {
+    return this.httpClient.delete<Booking[]>(`http://localhost:1228/booking/drop/${id}`)
+  }
   // uid!: number;
   constructor(private httpClient: HttpClient) { }
   getbookingById(uid:number) {

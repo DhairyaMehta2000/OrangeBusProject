@@ -19,32 +19,27 @@ export class BookingsummaryComponent implements OnInit {
   constructor(public bookingService: BookingService, public testService: TestServiceService, public busesService: BusesService) { }
   a = this.testService.aadhar
   ngOnInit(): void {
-    // this.getBusDetails();
-    // this.getBookings();
   }
   btn(){
-    // console.log(this.aadh)
     this.toToggle=true;
     this.getBookingByUid(this.aadh);
   }
-  // private getBusDetails() {
-  //   this.busesService.getBusesRouteList(this.busesService.busFrom, this.busesService.busTo).subscribe(data => {
-  //     this.buses = data;
-  //     console.log("buses = ", this.buses);
-  //   });
-  // }
-  // private getBookings() {
-  //   this.bookingService.getBookingsByList().subscribe(data => {
-  //     this.bookings = data;
-  //     console.log("bookings = ", this.bookings);
-
-  //   })
-  // }
+ cancelBooking(){
+   console.log("booking cancelled");
+   
+  //  this.deleteBookingByUid(this.);
+   this.btn()
+ }
   private getBookingByUid(a: number) {
-    // this.btn()
     this.bookingService.getbookingById(a).subscribe(data => {
       this.filteredBookings = data;
-      console.log(this.filteredBookings);
+      
     })
   }
+  // private deleteBookingByUid(a:number){
+  //   this.bookingService.deleteBookingById(a).subscribe(data=>{
+  //     this.filteredBookings=data;
+  //   })
+  // }
+  
 }

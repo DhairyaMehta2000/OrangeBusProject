@@ -15,15 +15,17 @@ export class BookingpageComponent implements OnInit {
   noOfAvailableSeats: number = 10;
   noOfselectedSeats: number = 0;
   seatNo = 0;
-  currentBookedSeats = 0;
+  currentSelectedSeats = 0;
+
+
   buses: Buses[] = [];
 
-  constructor(private testService:TestServiceService,private _router: Router, private busesService: BusesService,private bookingService:BookingService) { }
+  constructor(private testService: TestServiceService, private _router: Router, private busesService: BusesService, private bookingService: BookingService) { }
 
   toggleOn: any;
   onSubmit(f: NgForm) {
     // this.busesService.busData=bus
-    this.currentBookedSeats = f.value.seatNo;
+    this.currentSelectedSeats = f.value.seatNo;
     this.seatNo = f.value.seatNo
 
     if (this.noOfAvailableSeats < 10 && this.noOfAvailableSeats >= 0 && this.noOfselectedSeats > 0 && (this.noOfselectedSeats < 10 || this.noOfselectedSeats == 10)) {
@@ -46,6 +48,7 @@ export class BookingpageComponent implements OnInit {
       this.noOfAvailableSeats -= f.value.seatNo;
       this.noOfselectedSeats += Number(f.value.seatNo);
     }
+    this.testService.seat = this.currentSelectedSeats;
 
   }
   // private getBuses() {
@@ -61,8 +64,10 @@ export class BookingpageComponent implements OnInit {
   //   });
   // }
   private getBusesByRoute() {
-    this.busesService.getBusesRouteList(this.busesService.busFrom,this.busesService.busTo).subscribe(data => {this.buses=data;
-      console.log("bueses by route = ",this.buses);});
+    this.busesService.getBusesRouteList(this.busesService.busFrom, this.busesService.busTo).subscribe(data => {
+      this.buses = data;
+      // console.log("bueses by route = ", this.buses);
+    });
   }
 
   ngOnInit(): void {

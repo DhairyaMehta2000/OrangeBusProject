@@ -8,7 +8,7 @@ bookedDate!:String;
 busNumber!:String;
 busName!:String;
 paidFair!:String;
-seatNumber!:String;
+seatNumber!:number;
 ticketId!:String;
 ticketStatus!:String;
 customerName!:String;
@@ -17,7 +17,7 @@ customerAge!:String;
 uid!:number;
 
 constructor(   bookedFrom:String,  bookedTo:String,  busTime:String,  bookedDate:String,
-     busNumber:String,  busName:String,  paidFair:String,  seatNumber:String,  ticketId:String,  ticketStatus:String,
+     busNumber:String,  busName:String,  paidFair:String,  seatNumber:number,  ticketId:String,  ticketStatus:String,
      customerName:String,  customerGender:String,  customerAge:String,uid:number){
 //     this.id=id;
     this.bookedFrom=bookedFrom;

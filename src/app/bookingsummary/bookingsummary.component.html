@@ -4,7 +4,7 @@
     Enter Uid : <input type="number" [(ngModel)]="aadh">
     <br>
     <button (click)="btn()">Check bookings</button>
-    <div *ngIf="toToggle; else elseBlock" class="card">
+    <!-- <div *ngIf="toToggle; else elseBlock" class="card">
         <div class="card-body exp">
             <b>Customer Name</b>
             <b>Customer Gender</b>
@@ -51,6 +51,62 @@
             
             
         </div>
-    </div>
+    </div> -->
+
+
+
+    <table class="table table-bordered" style="margin-top: 20px;">
+        <thead>
+          <tr>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Customer Gender</th>
+            <th scope="col">Customer Age</th>
+            <th scope="col">Seat Number</th>
+            <th scope="col">Booked From</th>
+            <th scope="col">Booked To</th>
+            <th scope="col">Paid Fare</th>
+            <th scope="col">Bus Number</th>
+            <th scope="col">Cancel Booking</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let booking of filteredBookings">
+            <th scope="col">{{booking.customerName}}</th>
+                <td>
+                    {{booking.customerGender}}
+                </td>
+                <td>
+                    {{booking.customerAge}}
+                </td>
+                <td>
+                    {{booking.seatNumber}}
+                </td>
+                <td>
+                    {{booking.bookedFrom}}
+                </td>
+
+                <td> 
+                    {{booking.bookedTo}}
+                </td>
+
+                <td>
+                    {{booking.paidFair}}
+                </td>
+
+                <td>
+                    {{booking.busNumber}}
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)="cancelBooking()">
+                        Cancel
+                    </button>
+                </td>
+          </tr>
+         
+        </tbody>
+      </table>
+
+
+
     <ng-template #elseBlock></ng-template>
 </div>

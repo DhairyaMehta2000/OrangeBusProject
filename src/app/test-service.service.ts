@@ -9,4 +9,6 @@ export class TestServiceService {
   public fname!:String;
   public lname!:String;
   public aadhar!:number;
+  public seat!:number;
+  public no_seat:number=0;
 }

@@ -1,6 +1,6 @@
 
 <div id="register">
-    <form>
+    <form #regform="ngForm">
         <h2>User Registeration</h2>
         <div id="table1">
             <table>
@@ -24,7 +24,7 @@
                 </tr>
                 <tr>
                     <td> Confirm password : </td>
-                    <td> <input type="password" name="password2"></td>
+                    <td> <input type="password" #password2="ngModel" ngModel name="password2"></td>
                 </tr>
                 <tr>
                     <td> Enter your phone number : </td>
@@ -36,11 +36,11 @@
                 </tr>
                 <tr>
                     <td> Enter your Age : </td>
-                    <td> <input [(ngModel)]="users.age" type="number" name="Age" required> </td>
+                    <td> <input [(ngModel)]="users.age" type="number" name="age" required> </td>
                 </tr>  
             </table>
         </div>
-        <button class="btn btn-primary pri" (click)="btn()">Create</button>
+        <button class="btn btn-primary pri" (click)="registerUser(regform)">Create</button>
     </form>      
     <p><input type="submit" routerLink="/signin" value="Login" style="font-size: 15px;"></p>
 </div>
