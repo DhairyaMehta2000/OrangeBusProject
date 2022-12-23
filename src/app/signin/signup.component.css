@@ -1,0 +1,36 @@
+form {
+    background-color: burlywood;
+    margin-top: 5em;
+    border-radius: 4%;
+}
+
+* {
+    margin-top: 0.5em;
+}
+
+input {
+    width: 70%;
+    margin-left: 15%;
+}
+
+.container {
+    justify-content: center;
+    text-align: center;
+    width: 40%;
+}
+
+.txt1 {
+    color: brown;
+}
+
+.button {
+    color: black;
+    margin-bottom: 4%;
+}
+
+.button:hover {
+    color: rosybrown;
+}
+.pw{
+    float: left;
+}

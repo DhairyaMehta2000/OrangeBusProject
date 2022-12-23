@@ -1,0 +1,46 @@
+
+<div id="register">
+    <form #regform="ngForm">
+        <h2>User Registeration</h2>
+        <div id="table1">
+            <table>
+                <tr>
+                    <td> Enter your first name : </td>
+                    <td> <input [(ngModel)]="users.firstName" type="text" name="first_name" required> </td>
+                </tr>
+                <tr>
+                    <td> Enter your last name : </td>
+                    <td> <input [(ngModel)]="users.lastName" type="text" name="last_name" required> </td>
+                </tr>
+                <tr>
+                    <td> Select Gender : </td>
+                    <td> <input [(ngModel)]="users.gender" type="radio" value="male" name="gender"> Male
+                        <input [(ngModel)]="users.gender" type="radio" value="female" name="gender"> Female
+                    </td>
+                </tr>
+                <tr>
+                    <td> Enter your password : </td>
+                    <td> <input [(ngModel)]="users.password" type="password" name="password"></td>
+                </tr>
+                <tr>
+                    <td> Confirm password : </td>
+                    <td> <input type="password" #password2="ngModel" ngModel name="password2"></td>
+                </tr>
+                <tr>
+                    <td> Enter your phone number : </td>
+                    <td> <input [(ngModel)]="users.mobileNumber" type="number" name="phonenumber" required> </td>
+                </tr>
+                <tr>
+                    <td>Enter Aadhar number NO:</td>
+                    <td><input [(ngModel)]="users.uid" type="number" name="uid" required></td>
+                </tr>
+                <tr>
+                    <td> Enter your Age : </td>
+                    <td> <input [(ngModel)]="users.age" type="number" name="age" required> </td>
+                </tr>  
+            </table>
+        </div>
+        <button class="btn btn-primary pri" (click)="registerUser(regform)">Create</button>
+    </form>      
+    <p><input type="submit" routerLink="/signin" value="Login" style="font-size: 15px;"></p>
+</div>

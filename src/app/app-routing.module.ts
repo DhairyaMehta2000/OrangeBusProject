@@ -5,29 +5,29 @@ import { BookingsComponent } from './bookings/bookings.component';
 import { CancelticketComponent } from './cancelticket/cancelticket.component';
 import { CardComponent } from './card/card.component';
 import { HomeComponent } from './home/home.component';
-import { OffersComponent } from './offers/offers.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { PaymentpageComponent } from './bookingpage/paymentpage/paymentpage.component';
-import { RegistrationComponent } from './registration/registration.component';
+import { PaymentpageComponent } from './paymentpage/paymentpage.component';
 import { FaqComponent } from './faq/faq.component';
-import { SignupComponent } from './signup/signup.component';
+import { SignupComponent } from './signin/signup.component';
+import { PatientRegisterComponent } from './registration/register.component';
+import { BookingsummaryComponent } from './bookingsummary/bookingsummary.component';
+import { RouteguardService } from './routeguard.service';
 
 
 export const routes: Routes = [
-  {path:'offers',component:OffersComponent},
+  // {path:'offers',component:OffersComponent},
   {path:'bookings',component:BookingsComponent},
   {path:'payment',component:PaymentpageComponent},
   {path:'cancel',component:CancelticketComponent},
   {path:'home-page',component:HomeComponent},
   {path:'card',component:CardComponent},
-  {path:'booking',component:BookingpageComponent},
-  {path:'registration',component:RegistrationComponent},
+  {path:'booking',component:BookingpageComponent,canActivate:[RouteguardService]},
+  {path:'registration',component:PatientRegisterComponent},
   {path:'faq',component:FaqComponent},
-  {path:'signup',component:SignupComponent},
-  {path:'',redirectTo:'/home-page',pathMatch:'full'},
+  {path:'signin',component:SignupComponent},
+  {path:'bookingsummary',component:BookingsummaryComponent,canActivate:[RouteguardService]},
+  {path:'',redirectTo:'/registration',pathMatch:'full'},
   {path:'**',component:PageNotFoundComponent },
-  
-  
 ];
 
 @NgModule({

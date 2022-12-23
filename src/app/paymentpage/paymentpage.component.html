@@ -1,0 +1,21 @@
+<h5>You have selected these many seats :{{item}} </h5>
+<h5>Booking for {{testService.fname}}</h5>
+
+<div clas="sm">
+
+    <form #form="ngForm" class="sm">
+        <h4 >Enter Aadhar number</h4>
+        <input class="biig" type="number" ngModel name="aadhar" #aadhar="ngModel" />
+        <h4 >Enter names of passengers</h4>
+        <input class="biig" type="text" ngModel name="names" #names="ngModel" />
+        <br><br>
+        <h4 >Enter gender of passengers</h4>
+        <input  class="biig" type="text" ngModel name="gender" #gender="ngModel" />
+        <br><br>
+        <h4 >Enter Age of passengers</h4>
+        <input class="biig" type="text" ngModel name="age" #age="ngModel" />
+        <br>
+        <br>
+        <button class="btn btn-primary" type="submit" (click)="payment(form)">Make payment</button>
+    </form>
+</div>

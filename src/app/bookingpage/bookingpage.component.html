@@ -1,11 +1,32 @@
-<div class="container">
+<!-- <div class="container">
+    <div class="card">
+        <div class="card-body exp">
+            <b>
+                Bus Name
+            </b>
+            <b>
+                Bus Number
+            </b>
+            <b>
+                Bus From
+            </b>
+            <b>
+                Bus To
+            </b>
+            <b>
+                Travel Time
+            </b>
+            <b>
+                Ticket cost
+            </b>
+        </div>
+    </div>
     <div class="row container1">
         <div class="col-md-12 col-lg-12 col-sm-12">
-
+            
             <div class="card">
-                <div class="card-body ">
-                    <h5 class="card-title exp">OrangeBus <b>08:00</b><b>10h
-                            00m</b><b>18:00</b><b>INR2000</b></h5>
+                <div class="card-body " *ngFor = "let bus of buses">
+                    <h5 class="card-title exp"><b>{{bus.busName}}</b>{{bus.busNumber}}<b></b> <b>{{bus.busFrom}}</b><b>{{bus.busTo}}</b><b>{{bus.travelTime}}</b><b>{{bus.busFair}}</b></h5>
                     <h6 class="card-subtitle mb-2 text-muted exp"></h6>
                     <p class="card-text exp">Some quick example text to build on the card title and make up the bulk of
                         the
@@ -25,10 +46,10 @@
                             <form #f="ngForm" (ngSubmit)="onSubmit(f)">
                                 Enter number of seats you want to book:
                                 <input type="number" name="seatNo" ngModel #seatNo="ngModel" />
-                                <button>check</button>
+                                <button class="btn btn-warning">Check</button>
                             </form>
-                            <p>The number of available seats are : {{noOfAvailableSeats}}</p>
-                            <p>The number of booked seats are : {{noOfbookedSeats}}</p>
+                            
+                            <p>The number of selected seats are : {{noOfselectedSeats}}</p>
                             <form #f="ngForm" (ngSubmit)="onSubmit(f) ">
 
                                 <button class="btn btn-warning">Proceed to Pay</button>
@@ -37,7 +58,7 @@
                                 <div>
                                     <h1>
                                         <div *ngIf="toggleOn; else elseBlock">
-                                            <app-paymentpage [item]="currentBookedSeats"></app-paymentpage>
+                                            <app-paymentpage [item]="currentSelectedSeats"></app-paymentpage>
                                         </div>
                                         <ng-template #elseBlock></ng-template>
                                         <hr>
@@ -51,22 +72,82 @@
 
                 </div>
             </div>
-            <!-- <h1>
-                <button (click)="toggleOn =!toggleOn">Toggle Greetings</button>
-              </h1>
-              <div *ngIf="!toggleOn; else elseBlock">
-              <app-paymentpage></app-paymentpage>
-              </div>
-              <ng-template #elseBlock></ng-template>
-              <hr> -->
-            <!-- <h1>
-                <button (click)="toggleOn =!toggleOn">Toggle Greetings</button>
-              </h1>
-              <div *ngIf="!toggleOn; else elseBlock">
-              <h2>Hello</h2>
-              <p>Good morning to you</p>
-              </div>
-              <ng-template #elseBlock>No greeting, Lagbaja nothing for you.</ng-template>
-              <hr>
-              <p>Today is Friday and this is a dummy text element to make you feel better</p>
-              <p>Understanding the ngIf directive with the else clause</p> -->
+             -->
+<div class="container">
+    <table class="table table-bordered" style="margin-top: 20px;">
+        <thead>
+            <tr>
+                <th scope="col">Bus Name</th>
+                <th scope="col">Bus Number</th>
+                <th scope="col">Bus From</th>
+                <th scope="col">Bus To</th>
+                <th scope="col">Travel Time</th>
+                <th scope="col">Ticket Cost</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let bus of buses">
+                
+                <td>
+                    {{bus.busName}}
+                </td>
+                <td>
+                    {{bus.busNumber}}
+                </td>
+                <td>
+                    {{bus.busFrom}}
+                </td>
+                <td>
+                    {{bus.busTo}}
+                </td>
+
+                <td>
+                    {{bus.travelTime}}
+                </td>
+
+                <td>
+                    {{bus.busFair}}
+                </td>
+
+
+            </tr>
+
+        </tbody>
+    </table>
+    <div class="buttton mb-3">
+        <button type="button" class="btn btn-outline-primary ms-2 " (click)="isCollapsed = ! isCollapsed"
+            [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+            Select seats
+        </button>
+    </div>
+    
+    <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+        <div class="container">
+    
+            <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+                Enter number of seats you want to book:
+                <input type="number" name="seatNo" ngModel #seatNo="ngModel" />
+                <button class="btn btn-warning">Check</button>
+            </form>
+    
+            <p>The number of selected seats are : {{noOfselectedSeats}}</p>
+            <form #f="ngForm" (ngSubmit)="onSubmit(f) ">
+    
+                <button class="btn btn-warning">Proceed to Pay</button>
+                <br>
+                <hr>
+                <div>
+                    <h1>
+                        <div *ngIf="toggleOn; else elseBlock">
+                            <app-paymentpage [item]="currentSelectedSeats"></app-paymentpage>
+                        </div>
+                        <ng-template #elseBlock></ng-template>
+                        <hr>
+                    </h1>
+                </div>
+    
+            </form>
+        </div>
+    </div>
+</div>

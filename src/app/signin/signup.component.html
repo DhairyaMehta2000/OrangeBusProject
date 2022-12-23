@@ -1,0 +1,56 @@
+<!-- <div class="container"
+    style="margin-left: 37%;background-color: cornsilk; width: 340px; height: 7.5cm; border-radius: 15px;" >
+    <form class="form-horizontal" style="width: 350px;" #item2="ngForm" (ngSubmit)="submit(item2)" novalidate>
+      <div class="form-group">
+        <br><i class="fa fa-user" aria-hidden="true"></i>
+        <label class="control-label col-sm-2" for="username">UserName:</label>
+        <div class="col-sm-10">
+          <input type="email" class="form-control" id="username" placeholder="Enter username" ngModel name="username" #username="ngModel">
+        </div>
+      </div>
+      <div class="form-group">
+        <i class="fa fa-lock" aria-hidden="true"></i>
+        <label class="control-label col-sm-2" for="password">Password:</label>
+        <div class="col-sm-10">
+          <input type="password" class="form-control" id="password" placeholder="Enter password" ngModel name="password" #password="ngModel">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          
+        </div>
+      </div>
+      <p><input type="submit" class=" mt-2 btn btn-warning" routerLink="/registration" value="Register Here" style="font-size: 15px;"></p>
+      <div class="form-group">
+        <div class="mb-2">
+          <input type="submit" class="btn btn-outline-warning"
+            style="margin-left: 3.1cm; margin-top: 0.7cm;" >
+        </div>
+      </div>
+    </form>
+  </div>
+  -->
+<div class="container">
+  <div class="row">
+
+    <div>
+      <form #form="ngForm" (ngSubmit)="login(form)">
+         <label class="control-label col-sm-2" for="username">UserName:</label>
+         <input type="text" class="form-control" id="username" placeholder="Enter username"name="user" ngModel required
+         #user="ngModel" >
+        
+        <div data-validate="Password is required">
+          
+         <label class="control-label col-sm-2" for="username">Password:</label>
+          <input type="password" name="pass" id="password" class="pw" ngModel required #pass="ngModel" placeholder="Enter password"> 
+        </div>
+        <br>
+        <br>
+        <div> <button class="txt1"> Login
+          </button> </div>
+      </form>
+    </div>
+  </div>
+
+
+</div>

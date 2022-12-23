@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router'
+import { BusesService } from '../buses.service';
+import { Buses } from '../buses';
+import { TestServiceService } from '../test-service.service';
+import { BookingService } from '../booking.service';
 @Component({
   selector: 'app-bookingpage',
   templateUrl: './bookingpage.component.html',
@@ -9,17 +13,22 @@ import { Router } from '@angular/router'
 export class BookingpageComponent implements OnInit {
   public isCollapsed = true;
   noOfAvailableSeats: number = 10;
-  noOfbookedSeats: number = 0;
+  noOfselectedSeats: number = 0;
   seatNo = 0;
-  currentBookedSeats = 0;
+  currentSelectedSeats = 0;
 
-  constructor(private _router: Router) { }
+
+  buses: Buses[] = [];
+
+  constructor(private testService: TestServiceService, private _router: Router, private busesService: BusesService, private bookingService: BookingService) { }
+
   toggleOn: any;
   onSubmit(f: NgForm) {
-    this.currentBookedSeats = f.value.seatNo;
-    this.seatNo = f.value.seatNo;
+    // this.busesService.busData=bus
+    this.currentSelectedSeats = f.value.seatNo;
+    this.seatNo = f.value.seatNo
 
-    if (this.noOfAvailableSeats < 10 && this.noOfAvailableSeats >= 0 && this.noOfbookedSeats > 0 && (this.noOfbookedSeats < 10 || this.noOfbookedSeats == 10)) {
+    if (this.noOfAvailableSeats < 10 && this.noOfAvailableSeats >= 0 && this.noOfselectedSeats > 0 && (this.noOfselectedSeats < 10 || this.noOfselectedSeats == 10)) {
       this.toggleOn = true;
     }
     else if (f.value.seatNo < 0) {
@@ -37,14 +46,34 @@ export class BookingpageComponent implements OnInit {
     }
     else {
       this.noOfAvailableSeats -= f.value.seatNo;
-      this.noOfbookedSeats += Number(f.value.seatNo);
+      this.noOfselectedSeats += Number(f.value.seatNo);
     }
+    this.testService.seat = this.currentSelectedSeats;
 
   }
-
-
+  // private getBuses() {
+  //   this.busesService.getBusesList().subscribe(data => {
+  //     this.buses = data;
+  //     console.log("buses = ", this.buses);
+  //   });
+  // }
+  // private getBusesById(bus:Buses){
+  //   this.busesService.getBusesByIdList(bus.busId).subscribe(data => {
+  //     this.buses = data;
+  //     console.log("buses = ", this.buses);
+  //   });
+  // }
+  private getBusesByRoute() {
+    this.busesService.getBusesRouteList(this.busesService.busFrom, this.busesService.busTo).subscribe(data => {
+      this.buses = data;
+      // console.log("bueses by route = ", this.buses);
+    });
+  }
 
   ngOnInit(): void {
+    // this.getBuses();
+    // this.getBusesById();
+    this.getBusesByRoute();
   }
 
 }

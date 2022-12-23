@@ -1,0 +1,112 @@
+<div class="container">
+    <h1>Enter Aadhar number to check bookings</h1>
+    <br>
+    Enter Uid : <input type="number" [(ngModel)]="aadh">
+    <br>
+    <button (click)="btn()">Check bookings</button>
+    <!-- <div *ngIf="toToggle; else elseBlock" class="card">
+        <div class="card-body exp">
+            <b>Customer Name</b>
+            <b>Customer Gender</b>
+            <b>Customer Age</b>
+            <b>Seat Number</b>
+            <b>Booked From</b>
+            <b>Booked To</b>
+            <b>Paid Fare</b>
+            <b>Bus Number</b>
+            
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body " *ngFor="let booking of filteredBookings">
+            <h5 class="card-title exp">
+                <b>{{booking.customerName}}</b>
+                <b>
+                    {{booking.customerGender}}
+                </b>
+                <b>
+                    {{booking.customerAge}}
+                </b>
+                <b>
+                    {{booking.seatNumber}}
+                </b>
+                <b>
+                    {{booking.bookedFrom}}
+                </b>
+
+                <b> 
+                    {{booking.bookedTo}}
+                </b>
+
+                <b>
+                    {{booking.paidFair}}
+                </b>
+
+                <b>
+                    {{booking.busNumber}}
+                </b>
+
+
+            </h5>
+            
+            
+        </div>
+    </div> -->
+
+
+
+    <table class="table table-bordered" style="margin-top: 20px;">
+        <thead>
+          <tr>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Customer Gender</th>
+            <th scope="col">Customer Age</th>
+            <th scope="col">Seat Number</th>
+            <th scope="col">Booked From</th>
+            <th scope="col">Booked To</th>
+            <th scope="col">Paid Fare</th>
+            <th scope="col">Bus Number</th>
+            <th scope="col">Cancel Booking</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let booking of filteredBookings">
+            <th scope="col">{{booking.customerName}}</th>
+                <td>
+                    {{booking.customerGender}}
+                </td>
+                <td>
+                    {{booking.customerAge}}
+                </td>
+                <td>
+                    {{booking.seatNumber}}
+                </td>
+                <td>
+                    {{booking.bookedFrom}}
+                </td>
+
+                <td> 
+                    {{booking.bookedTo}}
+                </td>
+
+                <td>
+                    {{booking.paidFair}}
+                </td>
+
+                <td>
+                    {{booking.busNumber}}
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)="cancelBooking()">
+                        Cancel
+                    </button>
+                </td>
+          </tr>
+         
+        </tbody>
+      </table>
+
+
+
+    <ng-template #elseBlock></ng-template>
+</div>
